@@ -35,8 +35,6 @@ ul {
     text-shadow: 50px;
 }
 li {
-    
-    
     list-style-type: none;
     font-size: 18px;
     padding-top: 30px;
@@ -46,5 +44,4 @@ li {
     text-align: center;
     color: white;
     text-shadow: 2px 1px black;
-    
 }

@@ -17,8 +17,6 @@ window.onload = function () {
 
 }
 
-//pulls random first character from API and appends it into an li element as well 
-//as the picture for the character
 const getPokemonA = () => {
     fetch('https://pokeapi.co/api/v2/pokemon/snorlax')
 
@@ -33,19 +31,14 @@ const getPokemonA = () => {
             const A = document.getElementById("A");
             const pic = document.createElement("img");
             const li = document.createElement("li");
-            
             pic.setAttribute("src", `${pokemon[0].sprites.front_shiny}`);
             const text = document.createTextNode(`Name: ${pokemon[0].species.name}, HP: ${pokemon[0].stats[1].base_stat}, Weight: ${pokemon[0].weight}`)
-            
             li.appendChild(pic);
             li.appendChild(text)
             A.append(li)
-
-
         })
 }
-//pulls random second character from API and appends it into an li element as well 
-//as the picture for the character
+
 const getPokemonB = () => {
     fetch('https://pokeapi.co/api/v2/pokemon/jigglypuff')
         .then(res => res.json())
@@ -58,16 +51,13 @@ const getPokemonB = () => {
             const B = document.getElementById("B");
             const pic = document.createElement("img");
             const li = document.createElement("li");
-            
             pic.setAttribute("src", `${pokemon[1].sprites.front_shiny}`);
             const text = document.createTextNode(`Name: ${pokemon[1].species.name}, HP: ${pokemon[1].stats[1].base_stat}, Weight: ${pokemon[1].weight}`)
-            
             li.appendChild(pic);
             li.appendChild(text)
             B.append(li)
         })
 }
-
 
 const battle = () => {
 
@@ -87,9 +77,6 @@ const reset = () => {
     let A = document.getElementById("A");
     let B = document.getElementById("B");
     let results = document.getElementById("battleResults");
-
-
-
     while (A.hasChildNodes()) {
         A.removeChild(A.firstChild)
     }
