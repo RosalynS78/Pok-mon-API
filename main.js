@@ -13,7 +13,7 @@
 
 
 // brings in the assert module for unit testing
-const assert = require('assert');
+
 
 let pokemon = [];
 
@@ -21,7 +21,7 @@ let pokemon = [];
 
 // }
 
-const getPokemonA = (fetch, pokemon) => {
+const getPokemonA = () => {
     fetch('https://pokeapi.co/api/v2/pokemon/snorlax')
 
         .then(res => res.json())
@@ -43,7 +43,7 @@ const getPokemonA = (fetch, pokemon) => {
         })
 }
 
-const getPokemonB = (fetch, pokemon) => {
+const getPokemonB = () => {
     fetch('https://pokeapi.co/api/v2/pokemon/jigglypuff')
         .then(res => res.json())
         .then(data => {
@@ -94,19 +94,52 @@ const reset = () => {
 }
 
 // Unit testing
+const assert = require('assert');
+
+let pokemonA = (fetch) => {
+    fetch('https://pokeapi.co/api/v2/pokemon/snorlax')
+        .then(res => {
+            if (!res.ok) {
+                throw Error(res.statusText)
+            }
+            return res.json()
+        })
+        .then(data => {
+            pokemon.push(data);
+            console.log(pokemon);
+        })
+        .catch(err => `Error,  ${err}`);
+
+}
+
+let pokemonB = (fetch) => {
+    fetch('https://pokeapi.co/api/v2/pokemon/jigglypuff')
+        .then(res => {
+            if (!res.ok) {
+                throw Error(res.statusText)
+            }
+            return res.json()
+        })
+        .then(data => {
+            pokemon.push(data);
+            console.log(pokemon);
+        })
+        .catch(err => `Error,  ${err}`);
+
+}
 
 // fetches API data
-describe('getPokemonA', () => {
+describe('pokemonA', () => {
     it('fetches API data', () => {
-        const fakeFetch = url => {
-            assert(url === 'https://pokeapi.co/api/v2/pokemon/snorlax')
-            return new Promise(function (resolve) {
+            const fakeFetch = url => {
+                assert(url === 'https://pokeapi.co/api/v2/pokemon/snorlax')
+                return new Promise(function (resolve) {
 
-            })
-        }
+                })
+            }
 
-        getPokemonA(fakeFetch);
-    }),
+            pokemonA(fakeFetch);
+        }),
 
         // mistyped address
         it('mistyped address', () => {
@@ -116,7 +149,7 @@ describe('getPokemonA', () => {
 
                 })
             }
-            getPokemonA(fakeFetch)
+            pokemonA(fakeFetch)
         })
     // out of range request 
     it('catches out of range', () => {
@@ -127,22 +160,22 @@ describe('getPokemonA', () => {
             })
         }
 
-        getPokemonA(fakeFetch);
+        pokemonA(fakeFetch);
     })
 
 })
 
-describe('getPokemonB', () => {
+describe('pokemonB', () => {
     it('fetches API data', () => {
-        const fakeFetch = url => {
-            assert(url === 'https://pokeapi.co/api/v2/pokemon/jigglypuff')
-            return new Promise(function (resolve) {
+            const fakeFetch = url => {
+                assert(url === 'https://pokeapi.co/api/v2/pokemon/jigglypuff')
+                return new Promise(function (resolve) {
 
-            })
-        }
+                })
+            }
 
-        getPokemonB(fakeFetch);
-    }),
+            pokemonB(fakeFetch);
+        }),
 
         // mistyped address
         it('mistyped address', () => {
@@ -152,7 +185,7 @@ describe('getPokemonB', () => {
 
                 })
             }
-            getPokemonA(fakeFetch)
+            pokemonB(fakeFetch)
         })
     // out of range request 
     it('catches out of range', () => {
@@ -163,8 +196,7 @@ describe('getPokemonB', () => {
             })
         }
 
-        getPokemonB(fakeFetch);
+        pokemonB(fakeFetch);
     })
 
 })
-
