@@ -11,13 +11,20 @@
 
 // api key not needed for pokemon api
 
-pokemon = [];
 
-window.onload = function () {
+// brings in the assert module for unit testing
+const assert = require('assert');
 
-}
 
-const getPokemonA = () => {
+
+
+let pokemon = [];
+
+// window.onload = function () {
+
+// }
+
+const getPokemonA = (fetch, pokemon) => {
     fetch('https://pokeapi.co/api/v2/pokemon/snorlax')
 
         .then(res => res.json())
@@ -39,7 +46,7 @@ const getPokemonA = () => {
         })
 }
 
-const getPokemonB = () => {
+const getPokemonB = (fetch, pokemon) => {
     fetch('https://pokeapi.co/api/v2/pokemon/jigglypuff')
         .then(res => res.json())
         .then(data => {
@@ -91,3 +98,79 @@ const reset = () => {
 
 
 }
+
+// Unit testing
+
+// fetches API data
+describe('getPokemonA', () => {
+    it('fetches API data', () => {
+        const fakeFetch = url => {
+            assert(url==='https://pokeapi.co/api/v2/pokemon/snorlax')
+            return new Promise(function(resolve) {
+
+        })
+        }
+        
+       getPokemonA(fakeFetch);
+    }),
+
+// mistyped address
+    it('mistyped address', () => {
+        const fakeFetch = url => {
+            assert(url="gottaCatchThemAll")
+            return new Promise(function(resolve) {
+                 
+            })
+        }
+        getPokemonA(fakeFetch)
+    })
+ // out of range request 
+      it('catches out of range', () => {
+            const fakeFetch = url => {
+                assert(url=' https://pokeapi.co/api/v2/pokemon/123')
+                return new Promise(function(resolve) {
+    
+            })
+            }
+            
+           getPokemonA(fakeFetch);
+    })
+
+    })
+
+    describe('getPokemonB', () => {
+        it('fetches API data', () => {
+            const fakeFetch = url => {
+                assert(url==='https://pokeapi.co/api/v2/pokemon/jigglypuff')
+                return new Promise(function(resolve) {
+    
+            })
+            }
+            
+           getPokemonB(fakeFetch);
+        }),
+    
+    // mistyped address
+        it('mistyped address', () => {
+            const fakeFetch = url => {
+                assert(url="pikaChu")
+                return new Promise(function(resolve) {
+                     
+                })
+            }
+            getPokemonA(fakeFetch)
+        })
+     // out of range request 
+          it('catches out of range', () => {
+                const fakeFetch = url => {
+                    assert(url=' https://pokeapi.co/api/v2/pokemon/456')
+                    return new Promise(function(resolve) {
+        
+                })
+                }
+                
+               getPokemonB(fakeFetch);
+        })
+    
+        })
+    
