@@ -44,3 +44,17 @@ Sign up for api key
 Create an arena that displays two Pokemon battling each other.
 Compare the two to see who is likely to win.
 
+
+Part 1: Testing Your Fetch
+Last week you paired up and built an app that fetches data from an API. Today you're going to add unit tests for multiple situations:
+
+Mistyped address
+Out of range request
+Wrong API key
+Hypothetical 4
+Hypothetical 5
+
+Instructions
+Pair up with your partner again
+git status to make sure you each have pushed up and merge all of your changes
+Work on one computer and add the 5 unit tests mentioned. You will have to refactor your request a bit to add in fetch as a dependency

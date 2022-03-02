@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "dotenv": "^16.0.0"
-  }
+  },
+  "name": "pok-mon-api",
+  "description": "Choose an app you want to build",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosalynS78/Pok-mon-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RosalynS78/Pok-mon-API/issues"
+  },
+  "homepage": "https://github.com/RosalynS78/Pok-mon-API#readme"
 }
