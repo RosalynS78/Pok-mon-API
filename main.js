@@ -20,14 +20,14 @@ let pokemon = [];
 // window.onload = function () {
 
 // }
-
 const getPokemonA = () => {
-    fetch('https://pokeapi.co/api/v2/pokemon/snorlax')
+    fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*100)}`)
 
         .then(res => res.json())
         .then(data => {
             pokemon.push(data)
-            console.log(pokemon);
+            console.log(data);
+            console.log(Math.random().toFixed(4))
         })
 
         .then(data => {
@@ -36,7 +36,7 @@ const getPokemonA = () => {
             const pic = document.createElement("img");
             const li = document.createElement("li");
             pic.setAttribute("src", `${pokemon[0].sprites.front_shiny}`);
-            const text = document.createTextNode(`Name: ${pokemon[0].species.name}, HP: ${pokemon[0].stats[1].base_stat}, Weight: ${pokemon[0].weight}`)
+            const text = document.createTextNode(`Name: ${pokemon[0].species.name}`)
             li.appendChild(pic);
             li.appendChild(text)
             A.append(li)
