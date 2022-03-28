@@ -1,6 +1,7 @@
 body {
   margin-top: 150px;
   background-image: url("./images/arenabg.jpg");
+  padding-left: 10px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -19,7 +20,7 @@ h3 {
 }
 
 img {
-  width: 200px;
+  width: 215px;
   height: auto;
   position: relative;
   left: 0px;
@@ -40,12 +41,14 @@ ul {
 
 li {
   list-style-type: none;
-  font-size: 18px;
+  font-size: 18.5px;
   padding-top: 30px;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   color: white;
   text-shadow: 1px 1.5px black;
+
 }

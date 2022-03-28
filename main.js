@@ -37,7 +37,7 @@ const getPokemonA = () => {
             const pic = document.createElement("img");
             const li = document.createElement("li");
             pic.setAttribute("src", `${pokemon[0].sprites.front_shiny}`);
-            const text = document.createTextNode(`Name: ${pokemon[0].species.name}, HP: ${pokemon[0].stats[1].base_stat}, Weight: ${pokemon[0].weight}`)
+            const text = document.createTextNode(`Name: ${pokemon[0].species.name.toUpperCase()}, HP: ${pokemon[0].stats[1].base_stat}, Weight: ${pokemon[0].weight}`)
             li.appendChild(pic);
             li.appendChild(text)
             A.append(li)
@@ -57,7 +57,7 @@ const getPokemonB = () => {
             const pic = document.createElement("img");
             const li = document.createElement("li");
             pic.setAttribute("src", `${pokemon[1].sprites.front_shiny}`);
-            const text = document.createTextNode(`Name: ${pokemon[1].species.name}, HP: ${pokemon[1].stats[1].base_stat}, Weight: ${pokemon[1].weight}`)
+            const text = document.createTextNode(`Name: ${pokemon[1].species.name.toUpperCase()}, HP: ${pokemon[1].stats[1].base_stat}, Weight: ${pokemon[1].weight}`)
             li.appendChild(pic);
             li.appendChild(text)
             B.append(li)
@@ -67,13 +67,13 @@ const getPokemonB = () => {
 const battle = () => {
 
     if ((pokemon[0].stats[1].base_stat) > (pokemon[1].stats[1].base_stat)) {
-        winner = pokemon[0].species.name
+        winner = pokemon[0].species.name.toUpperCase()
     } else {
-        winner = pokemon[1].species.name
+        winner = pokemon[1].species.name.toUpperCase()
     }
     const ul = document.getElementById('battleResults');
     const li = document.createElement('li');
-    const text = document.createTextNode(`${winner} wins!`);
+    const text = document.createTextNode(`${winner} Wins!`);
     li.appendChild(text);
     ul.append(li);
 }
