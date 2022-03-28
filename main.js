@@ -23,7 +23,7 @@ let pokemon = [];
 
 const getPokemonA = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*150)}`)
-    
+
         .then(res => res.json())
         .then(data => {
             pokemon.push(data)
