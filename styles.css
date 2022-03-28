@@ -36,7 +36,7 @@ ul {
     justify-content: center;
     text-align: center;
     color: white;
-    text-shadow: 50px;
+    text-shadow: 35px;
 }
 
 li {
@@ -48,5 +48,5 @@ li {
     justify-content: center;
     text-align: center;
     color: white;
-    text-shadow: 2px 1px black;
+    text-shadow: 1px 1.5px black;
 }
