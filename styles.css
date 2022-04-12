@@ -20,10 +20,10 @@ h3 {
 }
 
 img {
-  width: 215px;
+  width: 350px;
   height: auto;
   position: relative;
-  left: 0px;
+  right: 125px;
 }
 
 ul {

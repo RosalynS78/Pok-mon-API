@@ -17,18 +17,19 @@
 
 let pokemon = [];
 
+
 // window.onload = function () {
 
 // }
 
 const getPokemonA = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*150)}`)
+   fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*150)}`)
 
         .then(res => res.json())
         .then(data => {
             pokemon.push(data)
-            console.log(pokemon);
-            console.log(Math.random().toFixed(4))
+            // console.log(pokemon);
+            // console.log(Math.random().toFixed(4))
         })
 
         .then(data => {
@@ -36,7 +37,7 @@ const getPokemonA = () => {
             const A = document.getElementById("A");
             const pic = document.createElement("img");
             const li = document.createElement("li");
-            pic.setAttribute("src", `${pokemon[0].sprites.front_shiny}`);
+            pic.setAttribute("src", `${pokemon[0].sprites.other.dream_world.front_default}`);
             const text = document.createTextNode(`Name: ${pokemon[0].species.name.toUpperCase()}, HP: ${pokemon[0].stats[1].base_stat}, Weight: ${pokemon[0].weight}`)
             li.appendChild(pic);
             li.appendChild(text)
@@ -45,18 +46,18 @@ const getPokemonA = () => {
 }
 
 const getPokemonB = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*150)}`)
+  fetch(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random()*150)}`)
         .then(res => res.json())
         .then(data => {
             pokemon.push(data)
-            console.log(pokemon);
+            // console.log(pokemon);
         })
         .then(data => {
             pokemonData = data;
             const B = document.getElementById("B");
             const pic = document.createElement("img");
             const li = document.createElement("li");
-            pic.setAttribute("src", `${pokemon[1].sprites.front_shiny}`);
+            pic.setAttribute("src", `${pokemon[1].sprites.other.dream_world.front_default}`);
             const text = document.createTextNode(`Name: ${pokemon[1].species.name.toUpperCase()}, HP: ${pokemon[1].stats[1].base_stat}, Weight: ${pokemon[1].weight}`)
             li.appendChild(pic);
             li.appendChild(text)
